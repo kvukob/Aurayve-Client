@@ -2,6 +2,7 @@
 import { useAccountStore } from 'src/core/accounts/accountStore';
 import { computed,  ref } from 'vue';
 import SetUsernameCard from 'src/core/accounts/components/SetUsernameCard.vue';
+import AurBtn from 'components/PrimaryButton.vue';
 
 const accountStore = useAccountStore();
 const username = computed(() => {
@@ -30,10 +31,7 @@ const usernameDialog = ref(false);
             </q-item-label>
           </q-item-section>
           <q-item-section side class="gt-xs">
-            <q-btn color="primary" @click="usernameDialog = true">
-              <span v-if="username.length !== 0">Change</span>
-              <span v-if="username.length === 0">Set</span>
-            </q-btn>
+            <AurBtn @click="usernameDialog = true" label="Set"/>
           </q-item-section>
         </q-item>
       </q-list>

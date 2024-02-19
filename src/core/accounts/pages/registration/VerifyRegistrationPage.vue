@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AccountRepository from 'src/core/accounts/accountRepository';
+import AurBtn from 'components/PrimaryButton.vue';
 
 const router = useRouter();
 
@@ -43,7 +44,7 @@ async function verifyRegistration() {
 
 <template>
   <q-page class="row justify-center items-center ">
-    <q-card class="col-sm-8 col-md-6 col-lg-3 card ">
+    <q-card class="rounded col-sm-8 col-md-6 col-lg-3 card ">
       <q-card-section>
         <p>
           Thanks for signing up! We're happy you're here.
@@ -61,9 +62,7 @@ async function verifyRegistration() {
               {{ form.serverMessage }}
             </q-card-section>
           </q-card>
-          <q-btn :disabled="!form.verificationCode" class="full-width q-mt-md" color="primary" no-caps type="submit">
-            Next
-          </q-btn>
+          <AurBtn :disabled="!form.verificationCode" class="full-width q-mt-md" type="submit" label="Next" />
         </q-form>
       </q-card-section>
     </q-card>

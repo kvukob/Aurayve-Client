@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import AccountRepository from 'src/core/accounts/accountRepository';
+import PrimaryButton from 'components/PrimaryButton.vue';
 
 const router = useRouter();
 
@@ -11,13 +12,11 @@ const form = ref({
   serverError: false,
   serverMessage: '',
   error: false,
-  passwordResetAlert: false,
-  loading: false
+  passwordResetAlert: false
 });
 
 
 async function login() {
-  form.value.loading = true;
   const accountRepository = new AccountRepository();
   const res = await accountRepository.login(form.value.email, form.value.password);
   if (res) {
@@ -27,7 +26,6 @@ async function login() {
   } else {
     await router.push({ name: 'app' });
   }
-  form.value.loading = false;
 }
 
 function popAlert() {
@@ -38,7 +36,7 @@ function popAlert() {
 
 <template>
   <q-page class="row justify-center items-center">
-    <q-card  class="col-sm-8 col-md-6 col-lg-3 card">
+    <q-card  class="col-sm-8 col-md-6 col-lg-3 card rounded">
       <q-card-section>
         <div class="text-h5 q-pb-xl text-center">Log In</div>
         <q-form @submit="login">
@@ -56,13 +54,11 @@ function popAlert() {
               {{ form.serverMessage }}
             </q-card-section>
           </q-card>
-          <q-btn class="full-width q-mt-md" color="primary" no-caps type="submit"  :loading="form.loading">
-            <span>Next</span>
-          </q-btn>
+          <PrimaryButton  type="submit"  class="full-width q-mt-md"  label="Next"/>
         </q-form>
       </q-card-section>
       <q-card-section>
-        <q-btn class="text-secondary" flat no-caps dense @click="popAlert">Forgot password?</q-btn>
+        <q-btn flat no-caps dense @click="popAlert">Forgot password?</q-btn>
       </q-card-section>
     </q-card>
   </q-page>

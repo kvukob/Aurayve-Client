@@ -3,6 +3,7 @@
 import { computed, onMounted, ref } from 'vue';
 import fetcher from 'src/util/api/fetcher';
 import routes from 'src/util/api/fetcher/routes';
+import AurBtn from 'components/PrimaryButton.vue';
 
 const coinARZ = ref({});
 
@@ -15,22 +16,30 @@ const circulatingSupply = computed(() => {
   return Math.round(coinARZ.value.circulatingSupply);
 });
 
+const maxSupply = computed(() => {
+  return coinARZ.value.maxSupply;
+});
+
+const supplyPercent = computed(() => {
+  return ((circulatingSupply.value / maxSupply.value) * 100).toPrecision(2);
+});
+
 </script>
 
 <template>
-  <q-card class="card">
+  <q-card class="rounded card svgBackground">
     <q-card-section class="row justify-between">
       <q-icon name="las la-coins" size="xl" />
       <div class="column items-center">
           <span class="text-h4">
-            {{ circulatingSupply }}
+            {{ circulatingSupply }} / {{ maxSupply }}
            {{ coinARZ.symbol }}
           </span>
         <span class="text-subtitle1 text-accent">
-           has been released
+           {{ supplyPercent }}% has been released
           </span>
         <div class="q-pa-lg">
-          <q-btn label="Get some of your own" no-caps color="primary" :to="{name: 'app.faucet'}" />
+          <AurBtn label="Get some of your own" :to="{name: 'app.faucet'}" />
         </div>
       </div>
     </q-card-section>

@@ -66,7 +66,6 @@ const getCurrentEmailCode = async function() {
     Notify.create({
       message: 'Verification email sent!  Check your current email inbox and enter the code on this page.',
       icon: 'las la-check-square',
-      color: 'dark-page',
       iconColor: 'positive',
       position: 'bottom-right',
       group: false
@@ -81,7 +80,6 @@ const getNewEmailCode = async function() {
     Notify.create({
       message: 'Verification email sent!  Check your new email inbox and enter the code on this page.',
       icon: 'las la-check-square',
-      color: 'dark-page',
       iconColor: 'positive',
       position: 'bottom-right',
       group: false

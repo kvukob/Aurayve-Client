@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AccountRepository from 'src/core/accounts/accountRepository';
+import AurBtn from 'components/PrimaryButton.vue';
 const router = useRouter();
 
 const form = ref({
@@ -34,7 +35,7 @@ async function register() {
 
 <template>
   <q-page class="row justify-center items-center ">
-    <q-card  class="col-sm-8 col-md-6 col-lg-3 card ">
+    <q-card  class="rounded col-sm-8 col-md-6 col-lg-3 card ">
       <q-card-section>
         <p class="text-h5 text-center">Create Account</p>
         <q-form @submit="register">
@@ -52,9 +53,7 @@ async function register() {
               {{ form.serverMessage }}
             </q-card-section>
           </q-card>
-          <q-btn class="full-width q-mt-md" color="primary" no-caps type="submit" :loading="form.loading">
-            Next
-          </q-btn>
+          <AurBtn type="submit" :loading="form.loading" label="Next" class="full-width q-mt-md"/>
         </q-form>
       </q-card-section>
     </q-card>

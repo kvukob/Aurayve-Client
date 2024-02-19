@@ -29,7 +29,7 @@ const submitForm = async function() {
 </script>
 
 <template>
-  <q-card flat class="rounded">
+  <q-card flat class="card">
   <q-card-section>
     <q-form @submit="submitForm">
       <p class="text-h5 text-center q-ma-lg text-left">Set Username</p>

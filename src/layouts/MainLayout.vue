@@ -18,7 +18,7 @@ const isBackgroundEnabled = true;
   <q-layout view="lHh Lpr lFf">
     <AppHeader  />
     <q-page-container :class="isBackgroundEnabled ? 'svgBackground' : ''">
-      <div class="background-video" v-if="false">
+      <div class="background-video" v-if="true">
         <video autoplay muted loop preload="auto" id="bgVideo">
           <source src="/src/assets/output.webm" type="video/webm">
         </video>

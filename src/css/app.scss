@@ -14,7 +14,6 @@ a{
 }
 
 .card {
-  border-radius: 25px;
   padding: 20px;
   margin: 5px;
   box-shadow: none;
@@ -24,8 +23,9 @@ a{
   border-radius: 25px;
 }
 
-.plain-link {
-  text-decoration: none;
+.rounded-bottom {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .background-video {

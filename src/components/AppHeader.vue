@@ -26,10 +26,10 @@ onMounted(() => {
 
 <template>
   <q-header class="bg-dark">
-    <q-toolbar class="flex content-center">
+    <q-toolbar class="flex content-center ">
       <q-toolbar-title class="row items-center">
         <router-link to="/">
-          <q-img src="../assets/logo.png" class="q-mr-sm q-mb-xs" width="25px"/>
+          <q-img src="../assets/2.png" class="q-mr-sm q-mb-xs" width="50px"/>
           <span class="gt-xs text-primary text-bold">Aurayve</span>
         </router-link>
         <q-btn label="Faucet" style="color: whitesmoke" no-caps :to="{name: 'app.faucet'}" />
@@ -50,6 +50,14 @@ onMounted(() => {
               </q-item-section>
               <q-item-section class="text-white">
                 Account
+              </q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup>
+              <q-item-section avatar>
+                <q-icon name="las la-question-circle"  />
+              </q-item-section>
+              <q-item-section>
+                Support
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup @click="logout()">

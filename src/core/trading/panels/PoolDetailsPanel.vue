@@ -16,8 +16,7 @@ const effectivePrice = computed(() => {
 
 <template>
 
-  <q-card v-if="pool.primaryCoin"  class="card">
-    <q-card-section>
+  <div v-if="pool.primaryCoin" >
       <q-list>
         <div class="row justify-center text-body1 text-grey-5">Pool Details</div>
         <q-separator color="accent" class="q-ma-sm" />
@@ -34,8 +33,7 @@ const effectivePrice = computed(() => {
           <q-item-section side>{{ effectivePrice }} {{ pool.secondaryCoin.symbol }}</q-item-section>
         </q-item>
       </q-list>
-    </q-card-section>
-  </q-card>
+  </div>
 </template>
 
 <style scoped>

@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AccountRepository from 'src/core/accounts/accountRepository';
+import AurBtn from 'components/PrimaryButton.vue';
 
 const router = useRouter();
 
@@ -43,7 +44,7 @@ async function finalizeRegistration() {
 
 <template>
   <q-page class="row justify-center items-center ">
-    <q-card class="col-sm-8 col-md-6 col-lg-3 card ">
+    <q-card class="col-sm-8 col-md-6 col-lg-3 card rounded">
       <q-card-section>
         <div class="row justify-center">
           <q-icon name="las la-lock" size="xl" />
@@ -58,9 +59,7 @@ async function finalizeRegistration() {
               {{ form.serverMessage }}
             </q-card-section>
           </q-card>
-          <q-btn class="full-width q-mt-md" color="primary" no-caps type="submit">
-            Finish
-          </q-btn>
+          <AurBtn class="full-width q-mt-md" type="submit" label="Finish" />
         </q-form>
       </q-card-section>
     </q-card>

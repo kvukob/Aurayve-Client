@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AurBtn from 'components/PrimaryButton.vue';
 </script>
 
 <template>
@@ -19,7 +20,7 @@
             <q-btn outline color="secondary" class="xs q-ma-sm full-width">Change</q-btn>
           </q-item-section>
           <q-item-section side class="gt-xs">
-            <q-btn  color="primary" :to="{name: 'app.account.change.email'}">Change</q-btn>
+            <AurBtn label="Change" :to="{name: 'app.account.change.email'}"/>
           </q-item-section>
         </q-item>
         <q-item>
@@ -33,7 +34,7 @@
             </q-item-label>
           </q-item-section>
           <q-item-section side class="gt-xs">
-            <q-btn color="primary" :to="{name: 'app.account.change.password'}">Change</q-btn>
+            <AurBtn label="Change" :to="{name: 'app.account.change.password'}"/>
           </q-item-section>
         </q-item>
       </q-list>
