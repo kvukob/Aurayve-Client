@@ -15,7 +15,7 @@ const form = ref({
 });
 
 
-const changePassword = async function() {
+const onSubmit = async function() {
   const res = await accountRepository.changePassword(form.value.currentPassword, form.value.newPassword);
   if (res.success) {
     Notify.create({
@@ -35,12 +35,12 @@ const changePassword = async function() {
 </script>
 
 <template>
-  <q-page class="column">
+  <q-page>
     <div class="row justify-center items-center">
       <div class="col-12 row justify-center">
         <div class="col-8 row items-center q-pt-sm q-pb-sm">
           <span class="text-h5">
-            <q-btn flat icon="las la-chevron-left" :to="{'name': 'app.account'}" color="primary" />
+            <q-btn flat icon="las la-chevron-left" @click="$router.go(-1)" color="primary" />
             Account / Password Verification
           </span>
         </div>
@@ -51,7 +51,7 @@ const changePassword = async function() {
             <q-card-section>
               <p class="text-h5 text-center">Change Password</p>
             </q-card-section>
-            <q-form @submit="changePassword">
+            <q-form @submit="onSubmit">
               <q-card-section>
                 <div class="q-ma-lg">
                   <label>Current Password</label>
@@ -82,7 +82,7 @@ const changePassword = async function() {
                   </q-card-section>
                 </q-card>
                 <q-card-actions align="between">
-                  <q-btn flat label="Cancel" :to="{name:'app.account'}" />
+                  <q-btn flat label="Cancel" @click="$router.go(-1)" />
                   <q-btn label="Confirm" color="primary" type="submit" />
                 </q-card-actions>
               </q-card-section>

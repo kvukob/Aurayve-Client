@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue';
 import AccountRepository from 'src/core/accounts/accountRepository';
 import {  LoginHistoryItem } from 'src/core/accounts/types';
-import { formatUTCDateToLocal } from 'src/util/utils';
+import { formatUTCDateToLocalDateTime } from 'src/util/utils';
 
 const loginHistory = ref<LoginHistoryItem[]>();
 
@@ -18,7 +18,7 @@ const columns = [
     label: 'Timestamp',
     align: 'left',
     field: row => row.timestamp,
-    format: val => `${formatUTCDateToLocal(val)}`,
+    format: val => `${formatUTCDateToLocalDateTime(val)}`,
     sortable: true
   },
   { name: 'ipAddress', align: 'left', label: 'IP Address', field: 'ipAddress', sortable: true },
@@ -33,12 +33,12 @@ const rows = computed(() => {
 </script>
 
 <template>
-  <q-page class="column">
+  <q-page>
     <div class="row justify-center">
       <div class="col-12 row justify-center">
         <div class="col-8 row items-center q-pt-sm q-pb-sm">
           <span class="text-h5">
-            <q-btn flat icon="las la-chevron-left" :to="{'name': 'app.account'}" color="primary"/>
+            <q-btn flat icon="las la-chevron-left" @click="$router.go(-1)" color="primary"/>
             Account Activities / Login History
           </span>
         </div>

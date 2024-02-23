@@ -16,7 +16,7 @@ const form = ref({
   loading: false
 });
 
-const submitForm = async function() {
+const onSubmit = async function() {
   form.value.loading = true;
   const res = await accountRepository.setUsername(form.value.username);
   if (res.success) {
@@ -31,7 +31,7 @@ const submitForm = async function() {
 <template>
   <q-card flat class="card">
   <q-card-section>
-    <q-form @submit="submitForm">
+    <q-form @submit="onSubmit">
       <p class="text-h5 text-center q-ma-lg text-left">Set Username</p>
         <q-card-section flat>
           <label>Username</label>

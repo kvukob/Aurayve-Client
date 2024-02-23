@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useAccountStore } from 'src/core/accounts/accountStore';
-import InfoBox from 'components/InfoBox.vue';
 import hub from 'src/util/api/hub';
-import CreateFaucetPage from 'src/core/faucet/pages/CreateFaucetPage.vue';
+import CreateFaucetTab from 'src/core/faucet/tabs/CreateFaucetTab.vue';
 
 const accountStore = useAccountStore();
 
@@ -15,19 +14,19 @@ const getImage = () => {
   return new URL('/src/assets/arz.png', import.meta.url).href;
 };
 
-const claimFaucet = async () => {
+const onClaim = async () => {
   await hub.faucetHub.claim();
 };
 
-const tab = ref("aurizen");
+const tab = ref('aurizen');
 
 </script>
 
 <template>
-  <q-page class="column">
+  <q-page>
     <div class="row justify-center">
       <div class="col-2">
-        <q-tabs  v-model="tab" active-color="primary"  no-caps align="left" vertical>
+        <q-tabs v-model="tab" active-color="primary" no-caps align="left" vertical>
           <q-tab name="aurizen" label="Aurizen" />
           <q-tab name="user.faucets" label="Other" />
           <q-separator />
@@ -35,7 +34,7 @@ const tab = ref("aurizen");
         </q-tabs>
       </div>
       <div class="col-10">
-        <q-tab-panels v-model="tab" >
+        <q-tab-panels v-model="tab">
           <q-tab-panel name="aurizen">
             <q-card flat>
               <q-card-section class="row justify-center">
@@ -65,11 +64,12 @@ const tab = ref("aurizen");
               </q-card-section>
               <q-separator />
               <q-card-actions class="row justify-center">
-                <q-btn no-caps color="primary" v-if="isLoggedIn" @click="claimFaucet()">
+                <q-btn no-caps color="primary" v-if="isLoggedIn" @click="onClaim()">
                   Claim Now
                 </q-btn>
-                <div>
-                  <InfoBox message="You must be logged in to use the faucet." v-if="!isLoggedIn"/>
+                <div class="row items-center text-weight-medium" v-if="!isLoggedIn">
+                  <q-icon name="las la-info-circle" size="32px" color="info" />
+                  You must be logged in to use the faucet.
                 </div>
               </q-card-actions>
             </q-card>
@@ -82,7 +82,7 @@ const tab = ref("aurizen");
             </q-card>
           </q-tab-panel>
           <q-tab-panel name="create.faucet">
-            <CreateFaucetPage />
+            <CreateFaucetTab />
           </q-tab-panel>
         </q-tab-panels>
 

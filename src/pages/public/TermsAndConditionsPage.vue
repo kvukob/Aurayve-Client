@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <q-page class="column">
+  <q-page>
     <div class="row justify-center">
       <div class="col-sm-10 col-md-8">
         <q-card flat class="bg-transparent">

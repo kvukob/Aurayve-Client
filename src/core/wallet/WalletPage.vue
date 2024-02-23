@@ -11,7 +11,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <q-page class="column">
+  <q-page>
     <div class="row justify-center">
       <q-card flat class="rounded col-12 col-sm-8 q-mt-xl">
         <q-card-section>

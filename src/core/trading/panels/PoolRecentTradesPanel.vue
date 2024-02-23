@@ -2,7 +2,7 @@
 import { useTradingStore } from 'src/core/trading/tradingStore';
 import { computed, watch } from 'vue';
 import hub from 'src/util/api/hub';
-import { formatUTCDateToLocalShort } from 'src/util/utils';
+import { formatUTCDateToLocalTime } from 'src/util/utils';
 import { colors, getCssVar } from 'quasar';
 import lighten = colors.lighten;
 import getPaletteColor = colors.getPaletteColor;
@@ -31,7 +31,7 @@ watch(selectedPoolGuid, async (newGuid, oldGuid) => {
 });
 
 const formattedTime = function(logTime) {
-  return formatUTCDateToLocalShort(logTime);
+  return formatUTCDateToLocalTime(logTime);
 };
 
 const formattedPrice = function(price) {

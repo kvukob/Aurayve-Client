@@ -1,6 +1,6 @@
 // @ts-check
 import { defineStore } from 'pinia';
-import {  formatUTCDateToLocal } from 'src/util/utils';
+import {  formatUTCDateToLocalDateTime } from 'src/util/utils';
 
 export const useAccountStore = defineStore({
   id: 'account',
@@ -49,10 +49,10 @@ export const useAccountStore = defineStore({
       this.maskedEmail = maskedEmail;
     },
     setDateRegistered(dateRegistered: string) {
-      this.dateRegistered = formatUTCDateToLocal(dateRegistered);
+      this.dateRegistered = formatUTCDateToLocalDateTime(dateRegistered);
     },
     setLastLogin(lastLogin: string) {
-      this.lastLogin = formatUTCDateToLocal(lastLogin);
+      this.lastLogin = formatUTCDateToLocalDateTime(lastLogin);
     }
   }
 });

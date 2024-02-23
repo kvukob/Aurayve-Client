@@ -16,7 +16,7 @@ const form = ref({
 });
 
 
-async function login() {
+async function onSubmit() {
   const accountRepository = new AccountRepository();
   const res = await accountRepository.login(form.value.email, form.value.password);
   if (res) {
@@ -24,7 +24,7 @@ async function login() {
     form.value.error = true;
     form.value.serverMessage = res;
   } else {
-    await router.push({ name: 'app' });
+    await router.push({ name: 'app.dashboard' });
   }
 }
 
@@ -39,7 +39,7 @@ function popAlert() {
     <q-card  class="col-sm-8 col-md-6 col-lg-3 card rounded">
       <q-card-section>
         <div class="text-h5 q-pb-xl text-center">Log In</div>
-        <q-form @submit="login">
+        <q-form @submit="onSubmit">
           <label>Email</label>
           <q-input class="q-mb-md" outlined v-model="form.email" dense type="email" :error="form.error"
                    hide-bottom-space

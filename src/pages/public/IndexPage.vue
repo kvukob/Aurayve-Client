@@ -13,12 +13,8 @@ const form = ref({
 });
 
 
-async function register() {
-  if (1 < 2)
-    await router.push({ name: 'initiate.register.account', query: { email: form.value.email } });
-  else {
-    console.log('badform');
-  }
+async function onSubmit() {
+  await router.push({ name: 'initiate.register.account', query: { email: form.value.email } });
 };
 
 
@@ -26,7 +22,7 @@ async function register() {
 
 <template>
   <q-page class="row items-center justify-center q-pt-xl">
-    <div class="row col-md-9 items-center justify-center"  style="height: 65vh">
+    <div class="row col-md-9 items-center justify-center">
       <q-card flat class="rounded row col-lg-6 bg-transparent">
         <q-card-section>
           <q-card flat class="q-pa-lg bg-transparent">
@@ -42,7 +38,7 @@ async function register() {
               </div>
             </q-card-section>
             <q-card-section>
-              <q-form @submit="register()" class="row">
+              <q-form @submit="onSubmit" class="row">
                 <q-input outlined dense placeholder="Email" v-model="form.email" class="q-mr-sm"
                          style="width: 35ch" />
                 <AurBtn type="submit" label="Sign up now" />
@@ -51,8 +47,8 @@ async function register() {
           </q-card>
         </q-card-section>
       </q-card>
-      <div class=" col-lg-6 row">
-        <q-chip class="text-h5" bo>
+      <div class="col-lg-6 row">
+        <q-chip class="text-h5">
           ARZ
           <span class="text-positive q-ml-md">+40%</span>
         </q-chip>
@@ -94,17 +90,20 @@ async function register() {
         </q-chip>
       </div>
     </div>
-    <div class="row justify-center col-12" style="height: 50vh">
+    <div class="col-12" style="height: 25vh" />
+    <div class="row justify-center col-12" >
       <div class="col-md-6 col-lg-6">
         <CoinDetailsCard />
       </div>
     </div>
-    <div class="row justify-center col-12" v-if="true"  style="height: 50vh">
+    <div class="col-12" style="height: 25vh" />
+    <div class="row justify-center col-12" v-if="true" >
       <q-card flat class="rounded col-md-6 col-lg-6 bg-transparent">
         <FAQCard />
       </q-card>
     </div>
-    <div class="row justify-center  col-12 " style="height: 20vh">
+    <div class="col-12" style="height: 25vh" />
+    <div class="row justify-center  col-12 " >
       <div class="text-overline text-grey-5 absolute-bottom row justify-center ">
         <span>&copy;</span>2024
         Aurayve

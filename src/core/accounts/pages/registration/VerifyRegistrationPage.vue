@@ -21,7 +21,7 @@ onMounted(() => {
   form.value.email = route.query.email as string;
 });
 
-async function verifyRegistration() {
+async function onSubmit() {
   form.value.loading = true;
   const accountRepository = new AccountRepository();
   const errorResponse = await accountRepository.verifyRegistration(form.value.email, form.value.verificationCode);
@@ -53,7 +53,7 @@ async function verifyRegistration() {
           An email has been sent to {{ form.email }} with instructions on verifying your email. Either copy the code and
           enter it below, or follow the link provided to finish creating your account.
         </p>
-        <q-form @submit="verifyRegistration">
+        <q-form @submit="onSubmit">
           <label>Verification Code</label>
           <q-input outlined v-model="form.verificationCode" />
           <q-card flat bordered v-if="form.serverError" class="q-mt-sm">

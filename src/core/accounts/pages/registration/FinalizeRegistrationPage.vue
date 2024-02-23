@@ -22,7 +22,7 @@ onMounted(() => {
   form.value.email = route.query.email as string;
 });
 
-async function finalizeRegistration() {
+async function onSubmit() {
   form.value.loading = true;
   const accountRepository = new AccountRepository();
   const errorResponse = await accountRepository.finalize(form.value.email, form.value.verificationCode, form.value.password);
@@ -35,7 +35,7 @@ async function finalizeRegistration() {
     if (loginRes) {
       console.log('login failed somehow?');
     } else {
-      await router.push({ name: 'app' });
+      await router.push({ name: 'app.dashboard' });
     }
   }
   form.value.loading = false;
@@ -50,7 +50,7 @@ async function finalizeRegistration() {
           <q-icon name="las la-lock" size="xl" />
         </div>
         <p class="text-h5 text-center">Create Your Password</p>
-        <q-form @submit="finalizeRegistration">
+        <q-form @submit="onSubmit">
           <label>Password</label>
           <q-input outlined v-model="form.password" type="password" />
           <q-card flat bordered v-if="form.serverError" class="q-mt-sm">

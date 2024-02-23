@@ -8,8 +8,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <q-page class="row justify-center q-pt-xl">
-    app logged in
+  <q-page class="row items-center justify-center">
+    <span class="text-h1 text-grey-6">
+      Dashboard
+    </span>
   </q-page>
 </template>
 

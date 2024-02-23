@@ -28,12 +28,12 @@ onMounted(() => {
   <q-header class="bg-dark">
     <q-toolbar class="flex content-center ">
       <q-toolbar-title class="row items-center">
-        <router-link to="/">
-          <q-img src="../assets/2.png" class="q-mr-sm q-mb-xs" width="50px"/>
-          <span class="gt-xs text-primary text-bold">Aurayve</span>
+        <router-link to="/" class="row items-center">
+          <q-icon name="las la-leaf" color="primary"/>
+          <span class="gt-xs text-primary q-mr-md">Aurayve</span>
         </router-link>
-        <q-btn label="Faucet" style="color: whitesmoke" no-caps :to="{name: 'app.faucet'}" />
-        <q-btn label="Trade" style="color: whitesmoke" no-caps :to="{name: 'app.trade'}" />
+        <q-btn label="Faucet" no-caps :to="{name: 'app.faucet'}" />
+        <q-btn label="Trade" no-caps :to="{name: 'app.trade'}" />
       </q-toolbar-title>
       <div v-if="!isLoggedIn">
         <q-btn flat label="Login" :to="{name: 'login'}" no-caps>
@@ -43,16 +43,16 @@ onMounted(() => {
       <div v-if="isLoggedIn">
         <q-btn flat :to="{name: 'app.wallet'}" label="Wallet" no-caps />
         <q-btn flat icon="las la-user-circle" no-caps>
-          <q-menu style="width: 200px; box-shadow: none;">
+          <q-menu style="width: 200px; box-shadow: none; border-left: 1px var(--q-primary) dotted">
             <q-item clickable v-close-popup :to="{name: 'app.account'}">
               <q-item-section avatar>
-                <q-icon name="las la-user" color="white" size="sm" />
+                <q-icon name="las la-user" />
               </q-item-section>
-              <q-item-section class="text-white">
+              <q-item-section>
                 Account
               </q-item-section>
             </q-item>
-            <q-item clickable v-close-popup>
+            <q-item clickable v-close-popup :to="{name: 'support'}">
               <q-item-section avatar>
                 <q-icon name="las la-question-circle"  />
               </q-item-section>

@@ -27,7 +27,7 @@ const supplyPercent = computed(() => {
 </script>
 
 <template>
-  <q-card class="rounded card svgBackground">
+  <q-card class="rounded card svgBackground" >
     <q-card-section class="row justify-between">
       <q-icon name="las la-coins" size="xl" />
       <div class="column items-center">

@@ -18,7 +18,7 @@ onMounted(() => {
   form.value.email = route.query.email as string;
 });
 
-async function register() {
+async function onSubmit() {
   form.value.loading = true;
   const accountRepository = new AccountRepository();
   const errorResponse = await accountRepository.initializeRegistration(form.value.email);
@@ -38,7 +38,7 @@ async function register() {
     <q-card  class="rounded col-sm-8 col-md-6 col-lg-3 card ">
       <q-card-section>
         <p class="text-h5 text-center">Create Account</p>
-        <q-form @submit="register">
+        <q-form @submit="onSubmit">
           <label>Email</label>
           <q-input required class="q-mb-md" outlined v-model="form.email" dense type="email" :error="form.error" hide-bottom-space
           />
