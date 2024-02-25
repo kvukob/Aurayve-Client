@@ -29,8 +29,8 @@ onMounted(() => {
     <q-toolbar class="flex content-center ">
       <q-toolbar-title class="row items-center">
         <router-link to="/" class="row items-center">
-          <q-icon name="las la-leaf" color="primary"/>
-          <span class="gt-xs text-primary q-mr-md">Aurayve</span>
+          <q-icon name="las la-dungeon" color="primary" size="md"/>
+          <span class="gt-xs text-primary q-mr-md">AURAYVE</span>
         </router-link>
         <q-btn label="Faucet" no-caps :to="{name: 'app.faucet'}" />
         <q-btn label="Trade" no-caps :to="{name: 'app.trade'}" />

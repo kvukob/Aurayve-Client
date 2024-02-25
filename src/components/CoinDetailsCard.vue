@@ -27,28 +27,33 @@ const supplyPercent = computed(() => {
 </script>
 
 <template>
-  <q-card class="rounded card svgBackground" >
-    <q-card-section class="row justify-between">
-      <q-icon name="las la-coins" size="xl" />
+  <q-card class="rounded card bg-transparent">
+    <q-card-section>
       <div class="column items-center">
-          <span class="text-h4">
-            {{ circulatingSupply }} / {{ maxSupply }}
-           {{ coinARZ.symbol }}
+        <q-icon name="las la-coins" size="64px" />
+        <div class="text-h4 row items-center">
+          {{ circulatingSupply }} / {{ maxSupply }}
+          <span class="text-h5 q-ml-md">
+            ({{ supplyPercent }}%)
           </span>
-        <span class="text-subtitle1 text-accent">
-           {{ supplyPercent }}% has been released
-          </span>
-        <div class="q-pa-lg">
-          <AurBtn label="Get some of your own" :to="{name: 'app.faucet'}" />
+        </div>
+        <div class="text-body1">
+          {{ coinARZ.symbol }} has been released
         </div>
       </div>
     </q-card-section>
-    <q-card-section class="col-md-6">
-      <div class="text-h4 text-accent">ARZ?</div>
-      <p>
+    <div class="row justify-center q-ma-lg">
+      <q-icon name="las la-ellipsis-v" size="lg" color="accent"/>
+    </div>
+    <q-card-section class="col-md-6 text-center">
+      <div class="text-h4">ARZ?</div>
+      <span class="text-body2">
         Aurizen (ARZ) is the our native coin. We're giving it all away through our faucet.
-      </p>
+      </span>
     </q-card-section>
+    <q-card-actions class="row justify-center">
+      <AurBtn label="Get some of your own" :to="{name: 'app.faucet'}" />
+    </q-card-actions>
   </q-card>
 </template>
 

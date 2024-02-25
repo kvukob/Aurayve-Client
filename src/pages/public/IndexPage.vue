@@ -26,15 +26,15 @@ async function onSubmit() {
       <q-card flat class="rounded row col-lg-6 bg-transparent">
         <q-card-section>
           <q-card flat class="q-pa-lg bg-transparent">
-            <q-card-section class="text-h2 heading-text">
-              <div class="text-primary">
-                Fantasy Markets,
+            <q-card-section class="heading-text">
+              <div class="text-bold text-h2 ">
+                Trade Anything
               </div>
-              <div class="text-bold">
-                Real Opportunities
+              <div class="text-h3 ">
+                Beyond Boundaries
               </div>
-              <div class="text-subtitle2 q-pt-lg">
-                Your trades are more than transactions; they're chapters in your trading saga.
+              <div class="text-subtitle1 q-pt-lg">
+                Empowering Communities, Empowering Traders
               </div>
             </q-card-section>
             <q-card-section>
@@ -47,7 +47,7 @@ async function onSubmit() {
           </q-card>
         </q-card-section>
       </q-card>
-      <div class="col-lg-6 row">
+      <div class="col-lg-6 row justify-center">
         <q-chip class="text-h5">
           ARZ
           <span class="text-positive q-ml-md">+40%</span>
@@ -91,19 +91,13 @@ async function onSubmit() {
       </div>
     </div>
     <div class="col-12" style="height: 25vh" />
-    <div class="row justify-center col-12" >
+    <div class="row justify-center col-12">
       <div class="col-md-6 col-lg-6">
         <CoinDetailsCard />
       </div>
     </div>
     <div class="col-12" style="height: 25vh" />
-    <div class="row justify-center col-12" v-if="true" >
-      <q-card flat class="rounded col-md-6 col-lg-6 bg-transparent">
-        <FAQCard />
-      </q-card>
-    </div>
-    <div class="col-12" style="height: 25vh" />
-    <div class="row justify-center  col-12 " >
+    <div class="row justify-center  col-12 ">
       <div class="text-overline text-grey-5 absolute-bottom row justify-center ">
         <span>&copy;</span>2024
         Aurayve

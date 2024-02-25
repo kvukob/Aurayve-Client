@@ -1,26 +1,22 @@
 <script setup lang="ts">
 import AppHeader from 'components/AppHeader.vue';
 
-/*
-const route = useRoute();
-const isBackgroundEnabled = computed(() => {
-  const allowedRouteNames = ['', 'login', 'initiate.register.account', 'verify.register.account', 'finalize.register.account'];
-  const currentRouteName = route.name;
-  return allowedRouteNames.includes(typeof currentRouteName === 'string' ? currentRouteName : '');
-});
-*/
-const isBackgroundEnabled = true;
-
+// Background
+// https://www.transparenttextures.com/dark-mosaic.html
 
 </script>
 
 <template>
   <q-layout view="lHh Lpr lFf">
     <AppHeader  />
-    <q-page-container :class="isBackgroundEnabled ? 'svgBackground' : ''">
+    <q-page-container
+      style="
+      background-image: url('src/assets/5.png');
+      "
+    >
       <div class="background-video" v-if="false">
         <video autoplay muted loop preload="auto" id="bgVideo">
-          <source src="/src/assets/outp3ut.webm" type="video/webm">
+          <source src="/src/assets/out3put.webm" type="video/webm">
         </video>
       </div>
       <router-view />
@@ -35,5 +31,12 @@ a:visited {
 }
 
 
-
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 </style>

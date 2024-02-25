@@ -92,11 +92,11 @@ module.exports = configure(function(/* ctx */) {
       iconSet: 'line-awesome',
       config: {
         brand: {
-          primary: '#ADF5FF',
+          primary: '#fae636',
           //primary: '#ffdc00',
           //secondary: '#9893DA',
-          secondary: '#C5F4E0',
-          accent: '#DFF8EB',
+          secondary: '#dbf1f5',
+          accent: '#F5DDDD',
           dark: '#262322',
           'dark-page': '#1e1d1f',
           positive: '#6ab24e',
